@@ -62,9 +62,9 @@ func init() {
 func TestTreeRouters(t *testing.T) {
 	for _, r := range routers {
 		tr := NewTree()
-		tr.AddRouter(r.url, "astaxie")
+		tr.AddRouter(r.url, "titan-group")
 		obj, param := tr.Match(r.requesturl)
-		if obj == nil || obj.(string) != "astaxie" {
+		if obj == nil || obj.(string) != "titan-group" {
 			t.Fatal(r.url + " can't get obj ")
 		}
 		if r.params != nil {
@@ -81,12 +81,12 @@ func TestTreeRouters(t *testing.T) {
 
 func TestAddTree(t *testing.T) {
 	tr := NewTree()
-	tr.AddRouter("/shop/:id/account", "astaxie")
-	tr.AddRouter("/shop/:sd/ttt_:id(.+)_:page(.+).html", "astaxie")
+	tr.AddRouter("/shop/:id/account", "titan-group")
+	tr.AddRouter("/shop/:sd/ttt_:id(.+)_:page(.+).html", "titan-group")
 	t1 := NewTree()
 	t1.AddTree("/v1/zl", tr)
 	obj, param := t1.Match("/v1/zl/shop/123/account")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/v1/zl/shop/:id/account can't get obj ")
 	}
 	if param == nil {
@@ -96,7 +96,7 @@ func TestAddTree(t *testing.T) {
 		t.Fatal("get :id param error")
 	}
 	obj, param = t1.Match("/v1/zl/shop/123/ttt_1_12.html")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/v1/zl//shop/:sd/ttt_:id(.+)_:page(.+).html can't get obj ")
 	}
 	if param == nil {
@@ -109,7 +109,7 @@ func TestAddTree(t *testing.T) {
 	t2 := NewTree()
 	t2.AddTree("/v1/:shopid", tr)
 	obj, param = t2.Match("/v1/zl/shop/123/account")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/v1/:shopid/shop/:id/account can't get obj ")
 	}
 	if param == nil {
@@ -119,7 +119,7 @@ func TestAddTree(t *testing.T) {
 		t.Fatal("get :id :shopid param error")
 	}
 	obj, param = t2.Match("/v1/zl/shop/123/ttt_1_12.html")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/v1/:shopid/shop/:sd/ttt_:id(.+)_:page(.+).html can't get obj ")
 	}
 	if param == nil {
@@ -132,12 +132,12 @@ func TestAddTree(t *testing.T) {
 
 func TestAddTree2(t *testing.T) {
 	tr := NewTree()
-	tr.AddRouter("/shop/:id/account", "astaxie")
-	tr.AddRouter("/shop/:sd/ttt_:id(.+)_:page(.+).html", "astaxie")
+	tr.AddRouter("/shop/:id/account", "titan-group")
+	tr.AddRouter("/shop/:sd/ttt_:id(.+)_:page(.+).html", "titan-group")
 	t3 := NewTree()
 	t3.AddTree("/:version(v1|v2)/:prefix", tr)
 	obj, param := t3.Match("/v1/zl/shop/123/account")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/:version(v1|v2)/:prefix/shop/:id/account can't get obj ")
 	}
 	if param == nil {
@@ -150,12 +150,12 @@ func TestAddTree2(t *testing.T) {
 
 func TestAddTree3(t *testing.T) {
 	tr := NewTree()
-	tr.AddRouter("/create", "astaxie")
-	tr.AddRouter("/shop/:sd/account", "astaxie")
+	tr.AddRouter("/create", "titan-group")
+	tr.AddRouter("/shop/:sd/account", "titan-group")
 	t3 := NewTree()
 	t3.AddTree("/table/:num", tr)
 	obj, param := t3.Match("/table/123/shop/123/account")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/table/:num/shop/:sd/account can't get obj ")
 	}
 	if param == nil {
@@ -165,19 +165,19 @@ func TestAddTree3(t *testing.T) {
 		t.Fatal("get :num :sd param error")
 	}
 	obj, param = t3.Match("/table/123/create")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/table/:num/create can't get obj ")
 	}
 }
 
 func TestAddTree4(t *testing.T) {
 	tr := NewTree()
-	tr.AddRouter("/create", "astaxie")
-	tr.AddRouter("/shop/:sd/:account", "astaxie")
+	tr.AddRouter("/create", "titan-group")
+	tr.AddRouter("/shop/:sd/:account", "titan-group")
 	t4 := NewTree()
 	t4.AddTree("/:info:int/:num/:id", tr)
 	obj, param := t4.Match("/12/123/456/shop/123/account")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/:info:int/:num/:id/shop/:sd/:account can't get obj ")
 	}
 	if param == nil {
@@ -187,7 +187,7 @@ func TestAddTree4(t *testing.T) {
 		t.Fatal("get :info :num :id :sd :account param error")
 	}
 	obj, param = t4.Match("/12/123/456/create")
-	if obj == nil || obj.(string) != "astaxie" {
+	if obj == nil || obj.(string) != "titan-group" {
 		t.Fatal("/:info:int/:num/:id/create can't get obj ")
 	}
 }

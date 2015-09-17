@@ -14,7 +14,7 @@
 
 // Usage:
 //
-// import "github.com/astaxie/beego/middleware"
+// import "github.com/titan-group/beego/middleware"
 //
 // I18N = middleware.NewLocale("conf/i18n.conf", beego.AppConfig.String("language"))
 //

@@ -16,7 +16,7 @@
 //
 // package main
 //
-// import "github.com/astaxie/beego"
+// import "github.com/titan-group/beego"
 //
 // func main() {
 //  	beego.Run()
@@ -33,7 +33,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/astaxie/beego/session"
+	"github.com/titan-group/beego/session"
 )
 
 // beego web framework version.

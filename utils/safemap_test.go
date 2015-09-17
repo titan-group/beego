@@ -20,19 +20,19 @@ import (
 
 func Test_beemap(t *testing.T) {
 	bm := NewBeeMap()
-	if !bm.Set("astaxie", 1) {
+	if !bm.Set("titan-group", 1) {
 		t.Error("set Error")
 	}
-	if !bm.Check("astaxie") {
+	if !bm.Check("titan-group") {
 		t.Error("check err")
 	}
 
-	if v := bm.Get("astaxie"); v.(int) != 1 {
+	if v := bm.Get("titan-group"); v.(int) != 1 {
 		t.Error("get err")
 	}
 
-	bm.Delete("astaxie")
-	if bm.Check("astaxie") {
+	bm.Delete("titan-group")
+	if bm.Check("titan-group") {
 		t.Error("delete err")
 	}
 }

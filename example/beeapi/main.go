@@ -2,17 +2,17 @@
 
 // @description beego is an open-source, high-performance web framework for the Go programming language.
 
-// @link        http://github.com/astaxie/beego for the canonical source repository
+// @link        http://github.com/titan-group/beego for the canonical source repository
 
-// @license     http://github.com/astaxie/beego/blob/master/LICENSE
+// @license     http://github.com/titan-group/beego/blob/master/LICENSE
 
-// @authors     astaxie
+// @authors     titan-group
 
 package main
 
 import (
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/example/beeapi/controllers"
+	"github.com/titan-group/beego"
+	"github.com/titan-group/beego/example/beeapi/controllers"
 )
 
 //		Objects

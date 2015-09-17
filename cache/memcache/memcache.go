@@ -20,8 +20,8 @@
 //
 // Usage:
 // import(
-//   _ "github.com/astaxie/beego/cache/memcache"
-//   "github.com/astaxie/beego/cache"
+//   _ "github.com/titan-group/beego/cache/memcache"
+//   "github.com/titan-group/beego/cache"
 // )
 //
 //  bm, err := cache.NewCache("memcache", `{"conn":"127.0.0.1:11211"}`)
@@ -36,7 +36,7 @@ import (
 
 	"github.com/bradfitz/gomemcache/memcache"
 
-	"github.com/astaxie/beego/cache"
+	"github.com/titan-group/beego/cache"
 )
 
 // Memcache adapter.

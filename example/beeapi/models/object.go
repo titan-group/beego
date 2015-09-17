@@ -1,8 +1,8 @@
 // Beego (http://beego.me/)
 // @description beego is an open-source, high-performance web framework for the Go programming language.
-// @link        http://github.com/astaxie/beego for the canonical source repository
-// @license     http://github.com/astaxie/beego/blob/master/LICENSE
-// @authors     astaxie
+// @link        http://github.com/titan-group/beego for the canonical source repository
+// @license     http://github.com/titan-group/beego/blob/master/LICENSE
+// @authors     titan-group
 
 package models
 
@@ -24,12 +24,12 @@ type Object struct {
 
 func init() {
 	Objects = make(map[string]*Object)
-	Objects["hjkhsbnmn123"] = &Object{"hjkhsbnmn123", 100, "astaxie"}
+	Objects["hjkhsbnmn123"] = &Object{"hjkhsbnmn123", 100, "titan-group"}
 	Objects["mjjkxsxsaa23"] = &Object{"mjjkxsxsaa23", 101, "someone"}
 }
 
 func AddOne(object Object) (ObjectId string) {
-	object.ObjectId = "astaxie" + strconv.FormatInt(time.Now().UnixNano(), 10)
+	object.ObjectId = "titan-group" + strconv.FormatInt(time.Now().UnixNano(), 10)
 	Objects[object.ObjectId] = &object
 	return object.ObjectId
 }

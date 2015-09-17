@@ -17,7 +17,7 @@ package memcache
 import (
 	_ "github.com/bradfitz/gomemcache/memcache"
 
-	"github.com/astaxie/beego/cache"
+	"github.com/titan-group/beego/cache"
 	"strconv"
 	"testing"
 	"time"
@@ -28,67 +28,67 @@ func TestRedisCache(t *testing.T) {
 	if err != nil {
 		t.Error("init err")
 	}
-	if err = bm.Put("astaxie", "1", 10); err != nil {
+	if err = bm.Put("titan-group", "1", 10); err != nil {
 		t.Error("set Error", err)
 	}
-	if !bm.IsExist("astaxie") {
+	if !bm.IsExist("titan-group") {
 		t.Error("check err")
 	}
 
 	time.Sleep(10 * time.Second)
 
-	if bm.IsExist("astaxie") {
+	if bm.IsExist("titan-group") {
 		t.Error("check err")
 	}
-	if err = bm.Put("astaxie", "1", 10); err != nil {
+	if err = bm.Put("titan-group", "1", 10); err != nil {
 		t.Error("set Error", err)
 	}
 
-	if v, err := strconv.Atoi(bm.Get("astaxie").(string)); err != nil || v != 1 {
+	if v, err := strconv.Atoi(bm.Get("titan-group").(string)); err != nil || v != 1 {
 		t.Error("get err")
 	}
 
-	if err = bm.Incr("astaxie"); err != nil {
+	if err = bm.Incr("titan-group"); err != nil {
 		t.Error("Incr Error", err)
 	}
 
-	if v, err := strconv.Atoi(bm.Get("astaxie").(string)); err != nil || v != 2 {
+	if v, err := strconv.Atoi(bm.Get("titan-group").(string)); err != nil || v != 2 {
 		t.Error("get err")
 	}
 
-	if err = bm.Decr("astaxie"); err != nil {
+	if err = bm.Decr("titan-group"); err != nil {
 		t.Error("Decr Error", err)
 	}
 
-	if v, err := strconv.Atoi(bm.Get("astaxie").(string)); err != nil || v != 1 {
+	if v, err := strconv.Atoi(bm.Get("titan-group").(string)); err != nil || v != 1 {
 		t.Error("get err")
 	}
-	bm.Delete("astaxie")
-	if bm.IsExist("astaxie") {
+	bm.Delete("titan-group")
+	if bm.IsExist("titan-group") {
 		t.Error("delete err")
 	}
 
 	//test string
-	if err = bm.Put("astaxie", "author", 10); err != nil {
+	if err = bm.Put("titan-group", "author", 10); err != nil {
 		t.Error("set Error", err)
 	}
-	if !bm.IsExist("astaxie") {
+	if !bm.IsExist("titan-group") {
 		t.Error("check err")
 	}
 
-	if v := bm.Get("astaxie").(string); v != "author" {
+	if v := bm.Get("titan-group").(string); v != "author" {
 		t.Error("get err")
 	}
 
 	//test GetMulti
-	if err = bm.Put("astaxie1", "author1", 10); err != nil {
+	if err = bm.Put("titan-group1", "author1", 10); err != nil {
 		t.Error("set Error", err)
 	}
-	if !bm.IsExist("astaxie1") {
+	if !bm.IsExist("titan-group1") {
 		t.Error("check err")
 	}
 
-	vv := bm.GetMulti([]string{"astaxie", "astaxie1"})
+	vv := bm.GetMulti([]string{"titan-group", "titan-group1"})
 	if len(vv) != 2 {
 		t.Error("GetMulti ERROR")
 	}
